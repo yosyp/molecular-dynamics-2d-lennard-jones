@@ -5,8 +5,8 @@
 % Yosyp Schwab
 %
 
-function ljmatlab(lj_epsilon, lj_sigma, m, ...
-                  dlat, latx, laty, dt, t_max, update_steps)
+function [t,x,y,vx,vy,fx,fy,pe,natoms] = ljmatlab(lj_epsilon, lj_sigma, ...
+                            m, dlat, latx, laty, dt, t_max, update_steps)
     %
     % Unit conversion parameters
     %
@@ -79,6 +79,8 @@ function ljmatlab(lj_epsilon, lj_sigma, m, ...
           fy(i,step) = atom{i}.fy;    
           pe(i,step) = sum(sum(atom{i}.u));
        end
+       
+       t(i,step) = step*dt; % Exact time at current step
 
        % Store newly calculated forces from this iteration to be used as the
        % "old" forces for the next iteration.
