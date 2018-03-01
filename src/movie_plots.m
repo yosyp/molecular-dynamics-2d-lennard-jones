@@ -1,6 +1,7 @@
 %
-% This script assumes that ljmatlab.m was run, and the data from the
-% simulation is still being stored in memory. 
+% This script assumes that main.m was run with at least one completed 
+% simulation, and the data from the simulation is still being stored in 
+% memory. 
 % 2018
 % Yosyp Schwab
 %
