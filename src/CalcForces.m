@@ -1,7 +1,17 @@
+%
+% Subroutine called my ljmatlab.m to re-calculate forces between all atoms
+% based on their updated positions and previous velocities. The
+% Lennard-Jones potential is implemented here, and it's derivative is used
+% to store the force calculation. 
+%
+% 2018
+% Yosyp Schwab
+% 
 function atom = CalcForces(atom,dlat,latx,laty,lj_epsilon,lj_sigma)
     natoms = length(atom);
     for i=1:natoms
         for j=1:natoms
+            % There is a double counting bug here. 
             if j ~= i
                 dr = sqrt( (atom{i}.x - atom{j}.x)^2 + (atom{i}.y - atom{j}.y)^2 );
 %                 if dr < 3*dlat

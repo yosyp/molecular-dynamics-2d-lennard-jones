@@ -20,7 +20,7 @@ update_steps = 50;      % Print status to console every n integration steps
 
 %
 % Equilibrium lattice parameter corresponds to the minimum energy of the LJ 
-% potential curve. Here is is directly defined:
+% potential curve. Here it is directly defined:
 dlat = 3.82198 * 1e-10;            % Equilibrium lattice parameter (meters)
 % but the minimum can also be obtained by finding the zero value using
 % these two plots:
