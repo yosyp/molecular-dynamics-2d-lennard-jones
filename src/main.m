@@ -40,4 +40,4 @@ dlat = 3.82198 * 1e-10;            % Equilibrium lattice parameter (meters)
 %       plot_energies(..., displayflag, saveflag, savedir, fileprefix)
 %
 plot_energies(t, m, vx, vy, pe, natoms, ...
-              true, true, '../figures', '7x7-10ps');
+              false, false, '../figures', '7x7-10ps');
