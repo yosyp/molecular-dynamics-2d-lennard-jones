@@ -14,7 +14,7 @@ lj_epsilon = 0.0103;    % LJ constant (eV)
 lj_sigma = 3.405;       % LJ constant (Angstrom)
 latx = 7;               % Number of atoms in lattice x direction
 laty = 7;               % Number of atoms in lattice y direction
-dt = 5e-14;             % Integration timestep (seconds)
+dt = 1e-14;             % Integration timestep (seconds)
 t_max = 10e-12;         % Total simulation time (seconds)
 update_steps = 50;      % Print status to console every n integration steps 
 
@@ -40,4 +40,4 @@ dlat = 3.82198 * 1e-10;            % Equilibrium lattice parameter (meters)
 %       plot_energies(..., displayflag, saveflag, savedir, fileprefix)
 %
 plot_energies(t, m, vx, vy, pe, natoms, ...
-              false, false, '../figures', '7x7-10ps');
+              true, false, '../figures', '7x7-10ps');
