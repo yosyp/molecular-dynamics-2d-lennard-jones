@@ -17,6 +17,8 @@ laty = 7;               % Number of atoms in lattice y direction
 dt = 1e-14;             % Integration timestep (seconds)
 t_max = 10e-12;         % Total simulation time (seconds)
 update_steps = 50;      % Print status to console every n integration steps 
+savedir = '../figures'; % Directory where figures are saved
+prefix = '7x7-10ps';    % Prefix of saved figure files
 
 %
 % Equilibrium lattice parameter corresponds to the minimum energy of the LJ 
@@ -40,4 +42,10 @@ dlat = 3.82198 * 1e-10;            % Equilibrium lattice parameter (meters)
 %       plot_energies(..., displayflag, saveflag, savedir, fileprefix)
 %
 plot_energies(t, m, vx, vy, pe, natoms, ...
-              true, false, '../figures', '7x7-10ps');
+              true, false, savedir, prefix);
+          
+%
+% Plot and/or save and/or display positions of atoms over time.
+% The function parameters are:
+%       plot_movies(..., displayflag, saveflag, savedir, fileprefix)
+movie_plots(dt,dlat,laty,latx,x,y,natoms,true,false, savedir, prefix);
