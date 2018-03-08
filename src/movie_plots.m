@@ -3,6 +3,7 @@
 % simulation, and the data from the simulation is still being stored in 
 % memory. 
 % 
+% gifdelay     Number of seconds between GIF frames saved.
 % displayflag  If true leave figures open after saving.
 % safeflag     If true save figures.
 % savedir      Directory name where figures are saved.
@@ -26,6 +27,11 @@ function movie_plots(dt, dlat, laty, latx, x, y, natoms, gifdelay, ...
         cla(gcf);
         for i=1:natoms
             hold on;
+            % TODO: Add force vectors over atom positions.
+%             q = quiver(x(i,j)./1e-9, y(i,j)./1e-9, 10e9*fx(i,j), 10e9*fy(i,j));
+%             q.Marker = 'o';q.MarkerSize = 20;q.Color = 'red';
+%             q.ShowArrowHead = 'on';q.MarkerEdgeColor = 'blue';
+%             q.LineWidth = 4;
             plot(x(i,j)./1e-9, y(i,j)./1e-9, 'bo', 'MarkerSize', 20, 'LineWidth', 4);
             hold off;
         end
