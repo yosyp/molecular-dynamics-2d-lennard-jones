@@ -45,7 +45,7 @@ function [t,x,y,vx,vy,fx,fy,pe,natoms] = ljmatlab(lj_epsilon, lj_sigma, ...
     end
 
     % Calculate initial forces of all atoms with given potential parameters.
-    atom = CalcForces(atom,dlat,latx,laty,lj_epsilon,lj_sigma);
+    atom = CalcForces(atom,latx,laty,lj_epsilon,lj_sigma);
 
     %
     % Velocity Verlet algorithm updates the atomic positions and velocities by
@@ -61,7 +61,7 @@ function [t,x,y,vx,vy,fx,fy,pe,natoms] = ljmatlab(lj_epsilon, lj_sigma, ...
        end
 
        % Calculate new forces using newly calculated atomic positions.
-       atom_updated = CalcForces(atom,dlat,latx,laty,lj_epsilon,lj_sigma);
+       atom_updated = CalcForces(atom,latx,laty,lj_epsilon,lj_sigma);
 
        for i=1:natoms
           % Calculate new velocities using newly calculated forces.

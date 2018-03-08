@@ -51,4 +51,5 @@ plot_energies(t, m, vx, vy, pe, natoms, ...
 %       plot_movies(..., displayflag, saveflag, savedir, fileprefix)
 % Note that is saveflag = true, the display plots are much slower because
 % each from is being saved.
-movie_plots(dt,dlat,laty,latx,x,y,natoms,gifdelay, true,false, savedir, prefix);
+movie_plots(dt, dlat, laty, latx, x, y, natoms, ...
+            gifdelay,true,false, savedir, prefix);

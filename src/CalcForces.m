@@ -16,8 +16,11 @@ function atom = CalcForces(atom,latx,laty,lj_epsilon,lj_sigma)
                 dr = sqrt( (atom{i}.x - atom{j}.x)^2 + (atom{i}.y - atom{j}.y)^2 );
                     atom{i}.fx = atom{i}.fx - (24*lj_epsilon*(lj_sigma^6)*(atom{i}.x-atom{j}.x))/(dr^8) * (1 - 2*(lj_sigma/dr)^6);
                     atom{i}.fy = atom{i}.fy - (24*lj_epsilon*(lj_sigma^6)*(atom{i}.y-atom{j}.y))/(dr^8) * (1 - 2*(lj_sigma/dr)^6);
-                    atom{i}.u(j) = 4*lj_epsilon*( (lj_sigma / ...
-                                                   dr)^12 - (lj_sigma / dr)^6);
+                    atom{i}.u(j) = 0;
+                    if j < i
+                        atom{i}.u(j) = 4*lj_epsilon*( (lj_sigma / ...
+                               dr)^12 - (lj_sigma / dr)^6);
+                    end
                     atom{i}.dr(j) = dr;
             end
             if j == natoms && i == natoms
