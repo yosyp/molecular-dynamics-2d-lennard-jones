@@ -19,6 +19,7 @@ t_max = 10e-12;         % Total simulation time (seconds)
 update_steps = 50;      % Print status to console every n integration steps 
 savedir = '../figures'; % Directory where figures are saved
 prefix = '7x7-10ps';    % Prefix of saved figure files
+gifdelay = 0.1;          % Time between frames of saved GIF movies
 
 %
 % Equilibrium lattice parameter corresponds to the minimum energy of the LJ 
@@ -48,4 +49,6 @@ plot_energies(t, m, vx, vy, pe, natoms, ...
 % Plot and/or save and/or display positions of atoms over time.
 % The function parameters are:
 %       plot_movies(..., displayflag, saveflag, savedir, fileprefix)
-movie_plots(dt,dlat,laty,latx,x,y,natoms,true,false, savedir, prefix);
+% Note that is saveflag = true, the display plots are much slower because
+% each from is being saved.
+movie_plots(dt,dlat,laty,latx,x,y,natoms,gifdelay, true,false, savedir, prefix);

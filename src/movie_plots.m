@@ -12,7 +12,7 @@
 % Yosyp Schwab
 %
 
-function movie_plots(dt, dlat, laty, latx, x, y, natoms, ...
+function movie_plots(dt, dlat, laty, latx, x, y, natoms, gifdelay, ...
                        displayflag, saveflag, savedir, fileprefix)     
     [~,steps] = size(x);               
     
@@ -31,10 +31,21 @@ function movie_plots(dt, dlat, laty, latx, x, y, natoms, ...
         end
         title(sprintf('time = %E, timestep %d', j*dt, j));
         drawnow;
-    end
-    
-    if saveflag == true
-        saveas(tempfig,sprintf('%s/%s-temp.png',savedir, fileprefix));
+        
+        if saveflag == true
+            frame = getframe(gcf);
+            img =  frame2im(frame);
+            [img,cmap] = rgb2ind(img,256);
+            if j == 1
+                imwrite(img, cmap, ...
+                        sprintf('%s/%s-temp.gif',savedir, fileprefix), ...
+                        'gif','LoopCount',Inf,'DelayTime',gifdelay);
+            else
+                imwrite(img, cmap, ...
+                        sprintf('%s/%s-temp.gif',savedir, fileprefix), ...
+                        'gif','WriteMode','append','DelayTime',gifdelay);
+            end  
+        end
     end
     
     if displayflag == false
