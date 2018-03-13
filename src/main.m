@@ -42,8 +42,8 @@ dlat = 3.82198 * 1e-10;            % Equilibrium lattice parameter (meters)
 % Plot and/or save and/or display energies. The function paramaters are:
 %       plot_energies(..., displayflag, saveflag, savedir, fileprefix)
 %
-%plot_energies(t, m, vx, vy, pe, natoms, ...
-%              true, false, savedir, prefix);
+plot_energies(t, m, vx, vy, pe, natoms, ...
+             true, false, savedir, prefix);
           
 %
 % Plot and/or save and/or display positions of atoms over time.
@@ -53,3 +53,11 @@ dlat = 3.82198 * 1e-10;            % Equilibrium lattice parameter (meters)
 % each from is being saved.
 movie_plots(dt, dlat, laty, latx, x, y, natoms, ...
             gifdelay,true,false, savedir, prefix);
+        
+        
+%
+% Plot and/or save and/or display positions of atoms trajectories.
+% The function parameters are:
+%       plot_movies(..., displayflag, saveflag, savedir, fileprefix)
+plot_trajectories(natoms, x, y, dlat, latx, laty, ...
+                  true, false, savedir, fileprefix);       
