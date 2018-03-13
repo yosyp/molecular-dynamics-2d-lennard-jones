@@ -42,8 +42,8 @@ dlat = 3.82198 * 1e-10;            % Equilibrium lattice parameter (meters)
 % Plot and/or save and/or display energies. The function paramaters are:
 %       plot_energies(..., displayflag, saveflag, savedir, fileprefix)
 %
-plot_energies(t, m, vx, vy, pe, natoms, ...
-              true, false, savedir, prefix);
+%plot_energies(t, m, vx, vy, pe, natoms, ...
+%              true, false, savedir, prefix);
           
 %
 % Plot and/or save and/or display positions of atoms over time.
