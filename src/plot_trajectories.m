@@ -19,9 +19,6 @@ function plot_trajectories(natoms, x, y, dlat, latx, laty, ...
     time = 1:steps;
     tempfig = figure; hold on;
 
-    % TODO: 
-    %  Plot trajectories of each atom over simulation timeframe. Add an
-    %  option that colorizes the path by time, with a time colorbar. 
     for i=1:natoms
         axis([-.5*laty*dlat 1.5*laty*dlat -.5*laty*dlat 1.5*laty*dlat]./1e-9);
         xlabel('x [nm]','FontWeight','bold','Color','black');
